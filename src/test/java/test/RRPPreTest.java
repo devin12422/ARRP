@@ -1,30 +1,30 @@
 package test;
 
-import static net.devtech.arrp.json.blockstate.JState.multipart;
-import static net.devtech.arrp.json.blockstate.JState.state;
-import static net.devtech.arrp.json.blockstate.JState.variant;
-import static net.devtech.arrp.json.blockstate.JState.when;
-import static net.devtech.arrp.json.loot.JLootTable.condition;
-import static net.devtech.arrp.json.loot.JLootTable.entry;
-import static net.devtech.arrp.json.loot.JLootTable.loot;
-import static net.devtech.arrp.json.loot.JLootTable.pool;
-import static net.devtech.arrp.json.models.JModel.element;
-import static net.devtech.arrp.json.models.JModel.face;
-import static net.devtech.arrp.json.models.JModel.faces;
-import static net.devtech.arrp.json.models.JModel.model;
-import static net.devtech.arrp.json.models.JModel.textures;
+import static com.ibn.arrp.json.blockstate.JState.multipart;
+import static com.ibn.arrp.json.blockstate.JState.state;
+import static com.ibn.arrp.json.blockstate.JState.variant;
+import static com.ibn.arrp.json.blockstate.JState.when;
+import static com.ibn.arrp.json.loot.JLootTable.condition;
+import static com.ibn.arrp.json.loot.JLootTable.entry;
+import static com.ibn.arrp.json.loot.JLootTable.loot;
+import static com.ibn.arrp.json.loot.JLootTable.pool;
+import static com.ibn.arrp.json.models.JModel.element;
+import static com.ibn.arrp.json.models.JModel.face;
+import static com.ibn.arrp.json.models.JModel.faces;
+import static com.ibn.arrp.json.models.JModel.model;
+import static com.ibn.arrp.json.models.JModel.textures;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.devtech.arrp.api.RuntimeResourcePack;
-import net.devtech.arrp.impl.RuntimeResourcePackImpl;
-import net.devtech.arrp.json.blockstate.JMultipart;
-import net.devtech.arrp.json.blockstate.JState;
-import net.devtech.arrp.json.blockstate.JVariant;
-import net.devtech.arrp.json.blockstate.JWhen;
-import net.devtech.arrp.json.lang.JLang;
-import net.devtech.arrp.json.models.JModel;
-import net.devtech.arrp.json.models.JTextures;
+import com.ibn.arrp.api.RuntimeResourcePack;
+import com.ibn.arrp.impl.RuntimeResourcePackImpl;
+import com.ibn.arrp.json.blockstate.JMultipart;
+import com.ibn.arrp.json.blockstate.JState;
+import com.ibn.arrp.json.blockstate.JVariant;
+import com.ibn.arrp.json.blockstate.JWhen;
+import com.ibn.arrp.json.lang.JLang;
+import com.ibn.arrp.json.models.JModel;
+import com.ibn.arrp.json.models.JTextures;
 
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
@@ -33,7 +33,7 @@ import java.nio.file.Path;
 public class RRPPreTest {
 	public static void main(String[] args) {
 		RuntimeResourcePack pack = RuntimeResourcePack.create("test:test");
-		pack.addLang(new Identifier("aaaa:aaaa"), new JLang().entry("aaaa", "bbbbb"));
+		pack.addLang( Identifier.of("aaaa:aaaa"), new JLang().entry("aaaa", "bbbbb"));
 		pack.dumpDirect(Path.of("aaaa"));
 
 		JState iron_block = state(variant(JState.model("block/iron_block")));
@@ -63,7 +63,7 @@ public class RRPPreTest {
 		                             .setPrettyPrinting()
 		                             .create();
 
-		JLang lang = JLang.lang().allPotionOf(new Identifier("mod_id", "potion_id"), "Example");
+		JLang lang = JLang.lang().allPotionOf(Identifier.of("mod_id", "potion_id"), "Example");
 
 		System.out.println(RuntimeResourcePackImpl.GSON.toJson(loot("minecraft:block").pool(pool().rolls(1)
                                                                                                   .entry(entry().type("minecraft:item").name("minecraft:diamond"))

@@ -1,12 +1,15 @@
 {
   "required": true,
-  "package": "net.devtech.arrp.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "package": "com.ibn.arrp.mixin",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [
     "FileResourcePackProviderMixin",
     "LifecycledResourceManagerImplMixin"
   ],
   "injectors": {
     "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
   }
 }
